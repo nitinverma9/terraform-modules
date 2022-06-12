@@ -1,6 +1,6 @@
 resource "aws_elasticache_cluster" "main" {
   cluster_id           = var.cluster_id
-  engine               = var.engine
+  engine               = "memcached"
   engine_version       = var.engine_version
   node_type            = var.node_type
   num_cache_nodes      = var.num_cache_nodes
