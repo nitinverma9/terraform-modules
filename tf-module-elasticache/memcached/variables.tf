@@ -2,6 +2,11 @@ variable "cluster_id" {
   default = "default-memcached-cluster"
 }
 
+variable "vpc_id" {
+  default = ""
+  type    = string
+}
+
 variable "engine_version" {
   default = "1.6.12"
   type    = string

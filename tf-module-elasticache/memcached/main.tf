@@ -34,7 +34,8 @@ resource "aws_elasticache_subnet_group" "main" {
 }
 
 resource "aws_security_group" "main" {
-  name = "memcached_security_group"
+  name   = "memcached_security_group"
+  vpc_id = var.vpc_id
   ingress {
     from_port   = 11211
     to_port     = 11211
