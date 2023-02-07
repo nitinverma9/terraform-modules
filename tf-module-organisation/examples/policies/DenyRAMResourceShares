@@ -1,0 +1,39 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OnlyNamedAccountsCanShareResources",
+      "Effect": "Deny",
+      "Action": [
+        "ram:AssociateResourceShare",
+        "ram:CreateResourceShare"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalAccount": [
+           ""
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "OnlySpecificResourcesCanBeShared",
+      "Effect": "Deny",
+      "Action": [
+        "ram:AssociateResourceShare",
+        "ram:CreateResourceShare"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ForAnyValue:StringNotEquals": {
+          "ram:RequestedResourceType": [
+            "ec2:PrefixList",
+            "ec2:TransitGateway",
+            "route53resolver:ResolverRule"
+          ]
+        }
+      }
+    }
+  ]
+}

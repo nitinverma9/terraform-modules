@@ -1,0 +1,15 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "DenyS3CreateAccessPoint",
+        "Effect": "Deny",
+        "Action": [
+          "s3:CreateAccessPoint"
+        ],
+        "Resource": [
+          "*"
+        ]
+      }
+    ]
+  }
